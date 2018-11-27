@@ -1,0 +1,24 @@
+{
+    "name": "albaranescli_pda",
+    "modifications": {
+        "deleteFile": [],
+        "replaceFile": [
+            {
+                "path": "config/",
+                "name": "dependencias.json"
+            }
+        ],
+        "patchScript": [],
+        "patchJson": [
+            {
+                "path": "config/",
+                "name": "urls.json"
+            },
+            {
+                "path": "config/",
+                "name": "registros.json"
+            }
+        ],
+        "addFile": []
+    }
+}
