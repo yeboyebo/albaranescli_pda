@@ -1,0 +1,61 @@
+{
+    "modifications": [
+        {
+            "type": "insertAfterNode",
+            "path": "/root",
+            "value": {
+                "querystring": {}
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/querystring",
+            "value": {
+                "schema": {}
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/schema",
+            "value": {
+                "layout": {
+                    "albaranescliForm": {
+                        "prefix": "albaranescli",
+                        "componente": "YBForm",
+                        "class": "claseGrid",
+                        "submit": "create",
+                        "return": true,
+                        "success": [
+                            {
+                                "receiver": "tdb_albaranescli",
+                                "slot": "redirect"
+                            }
+                        ],
+                        "fields": {
+                            "gb__": {
+                                "fields": {
+                                    "codcliente": {
+                                        "rel": "clientes",
+                                        "key": "codcliente",
+                                        "desc": "nombre",
+                                        "function": "getCliente",
+                                        "showpk": false
+                                    },
+                                    "cifnif": {},
+                                    "direccion": {},
+                                    "codserie": {
+                                        "disabled": true
+                                    },
+                                    "pda": {
+                                        "disabled": true
+                                    }
+                                }
+                            }
+                        },
+                        "exclude": {}
+                    }
+                }
+            }
+        }
+    ]
+}

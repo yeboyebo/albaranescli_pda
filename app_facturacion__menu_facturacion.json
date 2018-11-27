@@ -1,0 +1,19 @@
+{
+    "modifications": [
+        {
+            "type": "insertAfterNode",
+            "path": "/root",
+            "value": {
+                "items": [
+                    {
+                        "NAME": "Albaranes de PDA",
+                        "TEXT": "Albaranes de PDA",
+                        "URL": "facturacion/albaranescli/master",
+                        "ICON": "dashboard",
+                        "COLOR": "rgb(30, 170, 30)"
+                    }
+                ]
+            }
+        }
+    ]
+}

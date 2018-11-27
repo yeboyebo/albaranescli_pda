@@ -1,0 +1,81 @@
+{
+    "modifications": [
+        {
+            "type": "insertAfterNode",
+            "path": "/root",
+            "value": {
+                "querystring": {
+                    "p_l": 50,
+                    "p_c": true,
+                    "o_1": "-fecha",
+                    "s_pda__exact": "En PDA"
+                }
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/querystring",
+            "value": {
+                "schema": {}
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/schema",
+            "value": {
+                "layout": {
+                    "masterGrid": {
+                        "componente": "YBGrid",
+                        "class": "claseGrid",
+                        "label": "Albaranes de Cliente",
+                        "prefix": "master",
+                        "filter": "buscador",
+                        "columns": [
+                            {
+                                "tipo": "field",
+                                "key": "codigo",
+                                "width": 120
+                            },
+                            {
+                                "tipo": "field",
+                                "key": "fecha"
+                            },
+                            {
+                                "tipo": "field",
+                                "key": "nombrecliente",
+                                "width": 160,
+                                "label": "Cliente"
+                            },
+                            {
+                                "tipo": "field",
+                                "key": "idusuarioalta"
+                            }
+                        ],
+                        "rowclick": "link"
+                    },
+                    "newRecordFacturascli": {
+                        "componente": "YBNewRecord",
+                        "class": "info",
+                        "icon": "add"
+                    }
+                }
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/layout",
+            "value": {
+                "acciones": {
+                    "refrescarData": {
+                        "action": "refrescar"
+                    },
+                    "delete": {
+                        "label": "Prueba",
+                        "action": "deleteRow",
+                        "icon": "delete"
+                    }
+                }
+            }
+        }
+    ]
+}

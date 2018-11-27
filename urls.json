@@ -1,3 +1,46 @@
 {
-    "modifications": []
+    "modifications": [
+        {
+            "type": "insertAfterNode",
+            "path": "/models/flfactppal/zonasgeo",
+            "value": {
+                "historicos": null
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/models/flfacturac/agruparalbaranesprov",
+            "value": {
+                "lineascarro": null
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/models/flfacturac/lineascarro",
+            "value": {
+                "montadospedido": null
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/models/flfacturac/montadospedido",
+            "value": {
+                "lineascarrospisos": null
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/models/flfacturac/lineascarrospisos",
+            "value": {
+                "registrosmodificados": null
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/models/flfacturac/registrosmodificados",
+            "value": {
+                "registrosexportados": null
+            }
+        }
+    ]
 }

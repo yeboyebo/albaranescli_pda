@@ -1,0 +1,349 @@
+{
+    "modifications": [
+        {
+            "type": "insertAfterNode",
+            "path": "/root",
+            "value": {
+                "querystring": {}
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/querystring",
+            "value": {
+                "schema": {
+                    "lineasalbaranescli": {
+                        "rel": "idalbaran",
+                        "querystring": {
+                            "p_l": 50,
+                            "p_c": 1,
+                            "o_1": "-fechamod",
+                            "o_2": "-horamod"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/schema",
+            "value": {
+                "focus": "fdb_codBarras"
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/focus",
+            "value": {
+                "layout": {
+                    "groupBoxIdAlbaran": {
+                        "componente": "YBGroupBox",
+                        "className": "",
+                        "style": {
+                            "float": "right",
+                            "marginBotton": "50px",
+                            "overflow": "hidden"
+                        },
+                        "layout": {
+                            "labelInformacion": {
+                                "componente": "YBLabel",
+                                "text": "%yb1",
+                                "className": "floatingLabelLeft",
+                                "style": {
+                                    "width": "100%"
+                                },
+                                "params": [
+                                    {
+                                        "type": "model",
+                                        "key": "codigo"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "groupBoxTotales": {
+                        "componente": "YBGroupBox",
+                        "className": "",
+                        "style": {
+                            "float": "left",
+                            "marginBotton": "50px",
+                            "overflow": "hidden"
+                        },
+                        "layout": {
+                            "labelInformacion": {
+                                "componente": "YBLabel",
+                                "text": "Total: %yb1 €",
+                                "className": "floatingLabelRight",
+                                "style": {
+                                    "width": "100%"
+                                },
+                                "params": [
+                                    {
+                                        "type": "model",
+                                        "key": "total"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "layoutEnviar": {
+                        "componente": "YBGroupBox",
+                        "className": "class",
+                        "layout": {
+                            "enviarAbanqButton": {
+                                "componente": "YBButton",
+                                "prefix": "albaranescli",
+                                "icon": "send",
+                                "label": "Enviar a AbanQ",
+                                "className": "floatRight_",
+                                "buttonType": "flat",
+                                "action": {
+                                    "key": "enviarAbanq",
+                                    "success": [
+                                        {
+                                            "receiver": "tdb_albaranescli",
+                                            "slot": "return"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "layoutFields": {
+                        "componente": "YBGroupBox",
+                        "className": "class",
+                        "layout": {
+                            "fdb_codBarras": {
+                                "componente": "YBFieldDB",
+                                "prefix": "otros",
+                                "key": "codbarras",
+                                "desc": "descripcion",
+                                "disabled_name": "PVP",
+                                "auto_name": "Artículo",
+                                "disabled_field": "referencia",
+                                "auto_field": "descripcion",
+                                "function": "getCodBarrasProv",
+                                "tipo": "55",
+                                "rel": "articulos",
+                                "className": "",
+                                "actions": [
+                                    {
+                                        "signal": "enterPressed",
+                                        "receiver": "field_cantidad",
+                                        "key": "selectCantidad",
+                                        "success": [
+                                            {
+                                                "slot": "refrescar"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "field_cantidad": {
+                                "componente": "YBFieldDB",
+                                "prefix": "otros",
+                                "className": " fielddb",
+                                "key": "field_cantidad",
+                                "label": "cantidad",
+                                "defaultvalue": 1,
+                                "tipo": 16,
+                                "actions": [
+                                    {
+                                        "signal": "enterPressed",
+                                        "receiver": "tdb_albaranescli",
+                                        "key": "actNuevaLineaAlbaranescli",
+                                        "success": [
+                                            {
+                                                "slot": "refrescar"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "botonAccion": {
+                        "componente": "YBButton",
+                        "prefix": "albaranescli",
+                        "label": "ENVIAR",
+                        "buttonType": "raised",
+                        "primary": false,
+                        "secondary": true,
+                        "action": {
+                            "key": "actNuevaLineaAlbaranescli",
+                            "success": [
+                                {
+                                    "slot": "refrescar"
+                                },
+                                {
+                                    "receiver": "fdb_codBarras",
+                                    "slot": "select"
+                                }
+                            ]
+                        }
+                    },
+                    "lineasalbaranescligrid": {
+                        "label": "Lineas de Albaran",
+                        "componente": "YBGrid",
+                        "prefix": "lineasalbaranescli",
+                        "className": "claseGrid",
+                        "columns": [
+                            {
+                                "tipo": "field",
+                                "key": "cantidad",
+                                "label": "Cant.",
+                                "width": 60,
+                                "editable": true,
+                                "type": "number",
+                                "act": {
+                                    "key": "cambiarCantidadLineaAlbaran",
+                                    "success": [
+                                        {
+                                            "slot": "refrescar"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "tipo": "field",
+                                "key": "pvpreferencia",
+                                "editable": true,
+                                "type": "number",
+                                "act": {
+                                    "key": "cambiarPvpReferencia",
+                                    "success": [
+                                        {
+                                            "slot": "refrescar"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "tipo": "field",
+                                "key": "descripcion",
+                                "width": 400
+                            },
+                            {
+                                "tipo": "act",
+                                "key": "delete",
+                                "label": "Borrar Linea",
+                                "success": [
+                                    {
+                                        "slot": "refrescar",
+                                        "custom": "mastercargapedidos"
+                                    }
+                                ]
+                            }
+                        ],
+                        "rowclick": ""
+                    },
+                    "groupBoxAcciones": {
+                        "componente": "YBGroupBox",
+                        "className": "actionGB",
+                        "layout": {
+                            "volverButton": {
+                                "componente": "YBButton",
+                                "label": "Volver",
+                                "className": "floatRight",
+                                "buttonType": "raised",
+                                "action": {
+                                    "key": "volverMaster",
+                                    "success": []
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "type": "insertAfterNode",
+            "path": "/layout",
+            "value": {
+                "acciones": {
+                    "volverMaster": {
+                        "action": "return"
+                    },
+                    "delete": {
+                        "label": "Prueba",
+                        "action": "deleteRow",
+                        "icon": "delete"
+                    },
+                    "selectCantidad": {
+                        "action": "select"
+                    },
+                    "actNuevaLineaAlbaranescli": {
+                        "label": "Lineas albaran",
+                        "action": "legacy",
+                        "icon": "payment",
+                        "serverAction": "nuevaLinea",
+                        "params": [
+                            {
+                                "tipo": 3,
+                                "verbose_name": "codbarras",
+                                "key": "codbarras",
+                                "validaciones": null
+                            },
+                            {
+                                "tipo": 3,
+                                "verbose_name": "cantidad",
+                                "key": "field_cantidad",
+                                "validaciones": null
+                            }
+                        ]
+                    },
+                    "cambiaPvpUnitario": {
+                        "label": "cambiaPvp",
+                        "action": "legacy",
+                        "prefix": "lineasalbaranescli",
+                        "serverAction": "cambiaPvpUnitario",
+                        "icon": "create",
+                        "params": [
+                            {
+                                "tipo": 3,
+                                "required": true,
+                                "verbose_name": "precio",
+                                "key": "precio",
+                                "validaciones": null
+                            }
+                        ]
+                    },
+                    "enviarAbanq": {
+                        "label": "Lineas albaran",
+                        "action": "legacy",
+                        "icon": "payment",
+                        "serverAction": "enviarAbanq"
+                    },
+                    "cambiarCantidadLineaAlbaran": {
+                        "label": "Cambiar ubicacion",
+                        "action": "legacy",
+                        "icon": "payment",
+                        "serverAction": "cambiarCantidadLineaAlbaran",
+                        "params": [
+                            {
+                                "tipo": 3,
+                                "verbose_name": "Cantidad",
+                                "key": "cantidad",
+                                "validaciones": null
+                            }
+                        ]
+                    },
+                    "cambiarPvpReferencia": {
+                        "label": "Cambiar ubicacion",
+                        "action": "legacy",
+                        "icon": "payment",
+                        "serverAction": "cambiarPvpReferencia",
+                        "params": [
+                            {
+                                "tipo": 3,
+                                "verbose_name": "PVP Referencia",
+                                "key": "pvpreferencia",
+                                "validaciones": null
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+}

@@ -1,3 +1,11 @@
 {
-    "modifications": []
+    "modifications": [
+        {
+            "type": "insertAfterNode",
+            "path": "/flfactppal/usuarios",
+            "value": {
+                "historicos": null
+            }
+        }
+    ]
 }
