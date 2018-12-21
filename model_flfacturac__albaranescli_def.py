@@ -1,7 +1,6 @@
 
 # @class_declaration albaranescli_pda #
-
-class albaranescli_pda(oficial):
+class albaranescli_pda(flfacturac):
 
     def albaranescli_pda_enviarAbanq(self, model, oParam):
         model.pda = "Pendiente"

@@ -4,7 +4,7 @@ from YBLEGACY.constantes import *
 from YBUTILS.viewREST import cacheController
 
 
-class albaranescli_pda(oficial):
+class albaranescli_pda(flfacturac):
 
     def albaranescli_pda_bufferCommited_lineasalbaranescli(self, curLinea=None):
         # _i = self.iface

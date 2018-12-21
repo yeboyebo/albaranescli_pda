@@ -1,6 +1,6 @@
 
 # @class_declaration albaranescli_pda_lineasalbaranescli #
-class albaranescli_pda_lineasalbaranescli(oficial_lineasalbaranescli, helpers.MixinConAcciones):
+class albaranescli_pda_lineasalbaranescli(flfacturac_lineasalbaranescli, helpers.MixinConAcciones):
     pass
 
     class Meta:
