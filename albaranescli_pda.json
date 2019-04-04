@@ -62,10 +62,6 @@
         ],
         "addFile": [
             {
-                "path": "apps/portal/templates/portal/",
-                "name": "app_portal__login.html"
-            },
-            {
                 "path": "models/flfacturac/",
                 "name": "model_flfacturac__registrosmodificados.py"
             },
