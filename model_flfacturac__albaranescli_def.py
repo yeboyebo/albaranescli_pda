@@ -43,7 +43,7 @@ class albaranescli_pda(flfacturac):
             resul['param'] = barcode
             return resul
 
-        curLA = qsatype.FLSqlCursor(u"lineasalbaranesclicli")
+        curLA = qsatype.FLSqlCursor(u"lineasalbaranescli")
         curLA.select(ustr(u"idalbaran = ", idalbaran, u" AND referencia = '", referencia, "'"))
         if curLA.first():
             curLA.setModeAccess(curLA.Edit)
